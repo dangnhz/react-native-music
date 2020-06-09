@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {View, Text, Button, StatusBar} from 'react-native';
-
+import Icon from 'react-native-vector-icons/AntDesign';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
@@ -9,25 +9,61 @@ import SearchScreen from '../screens/SearchScreen';
 import FavoriteScreen from '../screens/FavoriteScreen';
 import MainPlayer from '../screens/MainPlayer';
 
-const BottomTab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
-const BottomTabBar = () => {
+const BottomTab = () => {
   return (
-    <BottomTab.Navigator>
-      <BottomTab.Screen name="Home" component={HomeScreen} />
-      <BottomTab.Screen name="Search" component={SearchScreen} />
-      <BottomTab.Screen name="Favorite" component={FavoriteScreen} />
-    </BottomTab.Navigator>
+    <Tab.Navigator
+      tabBarOptions={{
+        activeTintColor: '#13355B',
+        inactiveTintColor: '#C6C6D8',
+        showLabel: false,
+        tabStyle: {
+          marginTop: 20,
+        },
+        style: {
+          backgroundColor: 'white',
+          // borderRadius: 50,
+        },
+      }}
+      screenOptions={({route}) => ({
+        headerMode: 'none',
+        tabBarIcon: ({color, size}) => {
+          const icons = {
+            Home: 'home',
+            Search: 'search1',
+            Favorite: 'hearto',
+          };
+
+          return <Icon name={icons[route.name]} color={color} size={size} />;
+        },
+      })}>
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          title: 'Home',
+        }}
+      />
+      <Tab.Screen name="Search" component={SearchScreen} />
+      <Tab.Screen name="Favorite" component={FavoriteScreen} />
+    </Tab.Navigator>
   );
 };
 
 const Stack = createStackNavigator();
 
-export const MainStack = () => {
+export const AppStack = () => {
   return (
-    <Stack.Navigator mode="modal">
-      <Stack.Screen name="root" component={BottomTabBar} />
-      <Stack.Screen name="MainPlayer" component={MainPlayer} />
+    <Stack.Navigator mode="modal" headerMode="none" initialRouteName="Root">
+      <Stack.Screen name="Root" component={BottomTab} />
+      <Stack.Screen
+        name="MainPlayer"
+        component={MainPlayer}
+        options={() => ({
+          title: 'Now Playing',
+        })}
+      />
     </Stack.Navigator>
   );
 };
