@@ -14,7 +14,6 @@ import UpNext from '../components/MainPlayer/UpNext';
 import {ScrollView} from 'react-native-gesture-handler';
 
 const PlayerWrapper = styled.View`
-  flex: 1;
   background: white;
   border-top-right-radius: 40px;
   border-top-left-radius: 40px;
@@ -35,7 +34,7 @@ const MainPlayer = () => {
           <ProgressSlider />
           <SongDuration />
           <Controller />
-          <UpNext />
+          {/* <UpNext /> */}
           {/* <Button title="Back" onPress={() => navigation.navigate('Root')} /> */}
         </ScrollView>
       </PlayerWrapper>
