@@ -2,7 +2,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-const SongDuration = props => {
+const VideoDuration = props => {
   return (
     <View
       style={{
@@ -17,4 +17,4 @@ const SongDuration = props => {
   );
 };
 
-export default SongDuration;
+export default VideoDuration;

@@ -8,7 +8,7 @@ const Container = styled.View`
 
 const Title = styled.Text`
   font-size: 16px;
-  color: #c6c7de;
+  color: black;
 `;
 
 const AttrRecognizerStatic = props => {

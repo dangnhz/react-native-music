@@ -33,10 +33,9 @@ const Circle = styled.View`
   ${props => (props.left ? `left: ${props.left} ` : null)};
   ${props => (props.right ? `right: ${props.right} ` : null)};
 `;
-const Artwork = props => {
+const Artwork = ({trackArtwork}) => {
   const image = {
-    uri:
-      'https://images.unsplash.com/photo-1504898770365-14faca6a7320?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+    uri: trackArtwork,
   };
 
   return (

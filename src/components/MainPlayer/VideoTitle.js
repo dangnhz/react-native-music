@@ -7,11 +7,10 @@ const Container = styled.View`
 
 const Title = styled.Text`
   color: #0a2f64;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 18px;
 `;
 
-const SongTitle = props => {
+const VideoTitle = props => {
   return (
     <Container>
       <Title>{props.title}</Title>
@@ -19,4 +18,4 @@ const SongTitle = props => {
   );
 };
 
-export default SongTitle;
+export default VideoTitle;

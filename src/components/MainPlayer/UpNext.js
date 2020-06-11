@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text} from 'react-native';
 import styled from 'styled-components';
-import MiniSongList from '../SongList/MiniSongList';
+import MiniVideoList from '../SongList/MiniVideoList';
 import {Switch} from 'react-native-gesture-handler';
 
 const FlexContainer = styled.View`
@@ -33,7 +33,7 @@ const UpNext = () => {
         </View>
       </FlexContainer>
 
-      <MiniSongList />
+      <MiniVideoList />
     </View>
   );
 };

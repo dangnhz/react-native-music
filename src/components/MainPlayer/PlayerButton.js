@@ -5,22 +5,32 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import styled from 'styled-components';
 
+import TrackPlayer, {
+  useTrackPlayerProgress,
+  usePlaybackState,
+  useTrackPlayerEvents,
+} from 'react-native-track-player';
+
 const ButtonShadow = styled.TouchableOpacity`
   box-shadow: 0px 5px 5px rgba(252, 192, 28, 0.5);
 `;
 
 export const PlayPause = props => {
+  const playbackState = usePlaybackState();
   return (
-    <ButtonShadow>
-      <Icon name="play" {...props} />
-      {/* <Icon name="pausecircle" {...props} /> */}
+    <ButtonShadow onPress={props.onTogglePlayback}>
+      {playbackState === TrackPlayer.STATE_PLAYING ? (
+        <Icon name="pausecircle" {...props} />
+      ) : (
+        <Icon name="play" {...props} />
+      )}
     </ButtonShadow>
   );
 };
 
 export const Previous = props => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={props.onPrevious}>
       <Icon name="banckward" {...props} />
     </TouchableOpacity>
   );
@@ -28,7 +38,7 @@ export const Previous = props => {
 
 export const Next = props => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={props.onNext}>
       <Icon name="forward" {...props} />
     </TouchableOpacity>
   );

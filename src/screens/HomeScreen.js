@@ -1,19 +1,15 @@
 import React from 'react';
 import {View, Text, Button, StatusBar} from 'react-native';
 import Header from '../components/Header';
-import SongList from '../components/SongList/MiniSongList';
+import {useSelector} from 'react-redux';
 
 const HomeScreen = ({navigation}) => {
+  const songlist = useSelector(state => state.search.searchResults);
+
   return (
-    <View>
+    <View style={{flex: 1}}>
       <StatusBar barStyle="light-content" />
-      <Header background="#333" color="white" title="Home" />
-      <Text>Home</Text>
-      <Button
-        title="Open Player"
-        onPress={() => navigation.navigate('MainPlayer')}
-      />
-      <SongList />
+      <Header background="#E91D63" color="white" title="Home" />
     </View>
   );
 };

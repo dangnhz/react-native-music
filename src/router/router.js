@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {View, Text, Button, StatusBar} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -7,11 +6,11 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
 import SearchScreen from '../screens/SearchScreen';
 import FavoriteScreen from '../screens/FavoriteScreen';
-import MainPlayer from '../screens/MainPlayer';
+import TrackPlayerScreen from '../screens/TrackPlayerScreen';
 
 const Tab = createBottomTabNavigator();
 
-const BottomTab = () => {
+export const BottomTab = () => {
   return (
     <Tab.Navigator
       tabBarOptions={{
@@ -51,19 +50,19 @@ const BottomTab = () => {
   );
 };
 
-const Stack = createStackNavigator();
+// const Stack = createStackNavigator();
 
-export const AppStack = () => {
-  return (
-    <Stack.Navigator mode="modal" headerMode="none" initialRouteName="Root">
-      <Stack.Screen name="Root" component={BottomTab} />
-      <Stack.Screen
-        name="MainPlayer"
-        component={MainPlayer}
-        options={() => ({
-          title: 'Now Playing',
-        })}
-      />
-    </Stack.Navigator>
-  );
-};
+// export const AppStack = () => {
+//   return (
+//     <Stack.Navigator mode="modal" headerMode="none" initialRouteName="Root">
+//       <Stack.Screen name="Root" component={BottomTab} />
+//       <Stack.Screen
+//         name="TrackPlayerScreen"
+//         component={TrackPlayerScreen}
+//         options={() => ({
+//           title: 'Now Playing',
+//         })}
+//       />
+//     </Stack.Navigator>
+//   );
+// };
